@@ -4,6 +4,10 @@ $request = explode('/', $_SERVER['REQUEST_URI']);
 $page = $request[2];
 $id = $request[3] ?? null;
 
+
+
+
+
 if(isset($id)){
     $_SESSION['id'] = $id;
     echo $_SESSION['id'];
