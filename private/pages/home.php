@@ -1,11 +1,11 @@
 <?php
 spl_autoload_register(function($class){
-    require_once('./private/class/' . $class . '.php');
+    include_once('./private/class/' . $class . '.php');
 });
 
 
-$applications_class = new Application();
-$applications = $applications_class->get_all_applications();
+$application = new Application();
+$collection = $application->collection_request();
 ?>
 
 <!DOCTYPE html>
