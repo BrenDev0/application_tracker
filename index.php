@@ -4,8 +4,8 @@ $request = explode('/', $_SERVER['REQUEST_URI']);
 $page = $request[2];
 $id = $request[3] ?? null;
 
-if(isset($id)){
-    $_SESSION['id'] = $id;
+if(isset($id) && intval($id)){
+    $_SESSION['id'] = intval($id);
 }
 
 $folder = './private/pages/';
