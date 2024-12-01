@@ -1,3 +1,13 @@
+<?php
+spl_autoload_register(function($class){
+    require_once('./private/class/' . $class . '.php');
+});
+
+
+$applications_class = new Application();
+$applications = $applications_class->get_all_applications();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,6 +25,7 @@
                     <tr>
                         <th>Position</th>
                         <th>Company</th>
+                        <th>website</th>
                         <th>Status</th>
                     </tr>
                 </thead>
