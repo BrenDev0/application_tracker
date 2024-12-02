@@ -47,7 +47,11 @@ $collection = $application->collection_request();
                                         echo '<td>Interview</td>';
                                         break;
                                     case 3:
-                                     echo '<td>Job</td>';            
+                                        echo '<td>Job</td>'; 
+                                        break;
+                                    default:
+                                        echo '<td>Error</td>'; 
+                                        break;
                                 }
                             ?>
                         </tr>
