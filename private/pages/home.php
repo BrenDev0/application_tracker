@@ -29,7 +29,30 @@ $collection = $application->collection_request();
                         <th>Status</th>
                     </tr>
                 </thead>
-                <tbody id="all-applications"></tbody>
+                <tbody id="all-applications">
+                    <?php foreach($collection as $app): ?>
+                        <tr>
+                            <td><?= htmlentities($app['position']) ?></td>
+                            <td><?= htmlentities($app['company']) ?></td>
+                            <td><?= htmlentities($app['website']) ?></td>
+                            <?php
+                                switch($app['status']){
+                                    case 0:
+                                        echo '<td>Sent</td>';
+                                        break;
+                                    case 1:
+                                        echo '<td>Seen</td>';
+                                        break;
+                                    case 2:
+                                        echo '<td>Interview</td>';
+                                        break;
+                                    case 3:
+                                     echo '<td>Job</td>';            
+                                }
+                            ?>
+                        </tr>
+                    <?php endforeach; ?>    
+                </tbody>
             </table>
         </section>
     </div>
