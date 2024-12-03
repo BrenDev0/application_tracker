@@ -2,7 +2,6 @@
 
 $request = explode('/', $_SERVER['REQUEST_URI']);
 $page = $request[2];
-$styles = $request[4] ?? null;
 $id = $request[3] ?? null;
 
 if(isset($id) && intval($id)){
