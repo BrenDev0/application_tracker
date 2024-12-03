@@ -3,7 +3,6 @@ spl_autoload_register(function($class){
     include_once('./private/class/' . $class . '.php');
 });
 
-
 $application = new Application();
 $collection = $application->collection_request();
 ?>
@@ -13,6 +12,7 @@ $collection = $application->collection_request();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./public/css/styles.css">
     <title>Job Application Tracker</title>
 </head>
 <body>
@@ -20,7 +20,7 @@ $collection = $application->collection_request();
     <div>
         <section class="toolbar"></section>
         <section class="tables">
-            <table id="all-applications-table">
+            <table id="applications-table">
                 <thead>
                     <tr>
                         <th>Position</th>
@@ -29,7 +29,7 @@ $collection = $application->collection_request();
                         <th>Status</th>
                     </tr>
                 </thead>
-                <tbody id="all-applications">
+                <tbody id="applications">
                     <?php foreach($collection as $app): ?>
                         <tr>
                             <td><?= htmlentities($app['position']) ?></td>
