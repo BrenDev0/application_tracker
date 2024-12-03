@@ -1,5 +1,5 @@
 <?php
-require_once './private/config/Database.php';
+require_once '../private/config/Database.php';
 
 class Application {
     # Application status (0 = sent, 1 = seen, 3 = interview, 4 = got job)

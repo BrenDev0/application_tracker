@@ -1,6 +1,6 @@
 <?php
 spl_autoload_register(function($class){
-    include_once('./private/class/' . $class . '.php');
+    include_once('../private/class/' . $class . '.php');
 });
 
 $application = new Application();
@@ -16,8 +16,10 @@ $collection = $application->collection_request();
     <title>Job Application Tracker</title>
 </head>
 <body>
-    <header></header>
-    <div>
+    <header class="header">
+        <input type="text">
+</header>
+    <div class="con">
         <section class="toolbar"></section>
         <section class="tables">
             <table id="applications-table">
