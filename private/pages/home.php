@@ -5,6 +5,13 @@ spl_autoload_register(function($class){
 
 $application = new Application();
 $collection = $application->collection_request();
+
+if(isset($_POST['position'], $_POST['company'], $_POST['website'])){
+        $application->create_application($_POST['position'], $_POST['company'], $_POST['website']);
+        header('location: home');
+        return;
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -27,11 +34,27 @@ $collection = $application->collection_request();
                     <tr>
                         <th>Position</th>
                         <th>Company</th>
-                        <th>website</th>
+                        <th>Website</th>
                         <th>Status</th>
                     </tr>
                 </thead>
                 <tbody id="applications">
+                    <tr>
+                        <form method="post">
+                            <td>
+                                <input type="text" name="position" id="" placeholder="position">
+                            </td>
+                            <td>
+                                <input type="text" name="company" id="" placeholder="company">
+                            </td>
+                            <td>
+                                <input type="text" name="website" id="" placeholder="website">
+                            </td>
+                            <td>
+                                <button type="submit">Submit</button>
+                            </td>
+                        </form>
+                    </tr>
                     <?php foreach($collection as $app): ?>
                         <tr>
                             <td><?= htmlentities($app['position']) ?></td>
