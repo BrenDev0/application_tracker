@@ -67,5 +67,13 @@ tbody tr:nth-child(even) {
     text-align: left;
   }
 
+  th{
+    padding-left: 10px;
+  }
+  
+  td{
+    padding-left: 10px;
+  }
+
 
 
