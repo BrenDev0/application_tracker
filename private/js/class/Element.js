@@ -3,11 +3,17 @@ export class Element{
         this.element = document.getElementById(elementId);
     }
 
-    clearElement(){
+    clearChildren(){
         while (this.element.lastChild){
             this.element.removeChild(this.element.lastChild)
         }
     }
+
+    insert(child){
+        this.element.append(child);
+    }
+
+
 
     functionality(type, method){
         this.element.addEventListener(type, () => method);

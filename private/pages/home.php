@@ -5,6 +5,7 @@ spl_autoload_register(function($class){
 
 $application = new Application();
 $collection = $application->collection_request();
+$collectionJson = json_encode($collection);
 
 if(isset($_POST['position'], $_POST['company'], $_POST['website'])){
         $application->create_application($_POST['position'], $_POST['company'], $_POST['website']);
@@ -30,19 +31,19 @@ if(isset($_POST['position'], $_POST['company'], $_POST['website'])){
         <section class="toolbar">
             <ul>
                 <li>
-                    <button class="toolbar-btn">All</button>
+                    <button class="toolbar-btn" id="all-btn">All</button>
                 </li>
                 <li>
-                    <button class="toolbar-btn">Sent</button>
+                    <button class="toolbar-btn" id="sent-btn">Sent</button>
                 </li>
                 <li>
-                    <button class="toolbar-btn">Seen</button>
+                    <button class="toolbar-btn" id="seen-btn">Seen</button>
                 </li>
                 <li>
-                    <button class="toolbar-btn">Interviewed</button>
+                    <button class="toolbar-btn" id="interviewed-btn">Interviewed</button>
                 </li>
                 <li>
-                    <button class="toolbar-btn">Position</button>
+                    <button class="toolbar-btn" id="position-btn">Position</button>
                 </li>
             </ul>
         </section>
@@ -104,5 +105,8 @@ if(isset($_POST['position'], $_POST['company'], $_POST['website'])){
         </section>
     </div>
 </body>
+<script type="text/javascript">
+    const collectionData = JSON.parse('<?=$collectionJson?>');
+</script>
 <script type="module" src="./public/js/home.js"></script>
 </html>
