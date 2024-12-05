@@ -27,11 +27,29 @@ if(isset($_POST['position'], $_POST['company'], $_POST['website'])){
         <input type="text">
 </header>
     <div class="con">
-        <section class="toolbar"></section>
+        <section class="toolbar">
+            <ul>
+                <li>
+                    <button class="toolbar-btn">All</button>
+                </li>
+                <li>
+                    <button class="toolbar-btn">Sent</button>
+                </li>
+                <li>
+                    <button class="toolbar-btn">Seen</button>
+                </li>
+                <li>
+                    <button class="toolbar-btn">Interviewed</button>
+                </li>
+                <li>
+                    <button class="toolbar-btn">Position</button>
+                </li>
+            </ul>
+        </section>
         <section class="tables">
             <table id="applications-table">
                 <thead>
-                    <tr>
+                    <tr class="row">
                         <th>Position</th>
                         <th>Company</th>
                         <th>Website</th>
@@ -39,7 +57,7 @@ if(isset($_POST['position'], $_POST['company'], $_POST['website'])){
                     </tr>
                 </thead>
                 <tbody id="applications">
-                    <tr>
+                    <tr class="row">
                         <form method="post">
                             <td>
                                 <input type="text" name="position" id="" placeholder="position">
@@ -56,7 +74,7 @@ if(isset($_POST['position'], $_POST['company'], $_POST['website'])){
                         </form>
                     </tr>
                     <?php foreach($collection as $app): ?>
-                        <tr>
+                        <tr class="row">
                             <td><?= htmlentities($app['position']) ?></td>
                             <td><?= htmlentities($app['company']) ?></td>
                             <td><?= htmlentities($app['website']) ?></td>
@@ -72,7 +90,7 @@ if(isset($_POST['position'], $_POST['company'], $_POST['website'])){
                                         echo '<td>Interview</td>';
                                         break;
                                     case 3:
-                                        echo '<td>Job</td>'; 
+                                        echo '<td>Position</td>'; 
                                         break;
                                     default:
                                         echo '<td>Error</td>'; 
@@ -86,4 +104,5 @@ if(isset($_POST['position'], $_POST['company'], $_POST['website'])){
         </section>
     </div>
 </body>
+<script type="module" src="./public/js/home.js"></script>
 </html>
