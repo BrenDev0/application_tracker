@@ -4,6 +4,7 @@ import { Button } from "../../private/js/class/Button.js";
 
 const toolbar = new Toolbar('applications');
 
+const all = new Button('all-btn', () => location.reload(true));
 const sent = new Button('sent-btn', () => filterTable(0));
 const seen = new Button('seen-btn', () => filterTable(1));
 const interviewed = new Button('interviewed-btn', () => filterTable(2));
@@ -48,6 +49,4 @@ function filterTable(status){
         }
         toolbar.insert(row);
     });
-
-    
 }
