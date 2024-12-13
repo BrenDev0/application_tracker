@@ -43,7 +43,7 @@ body{
 }
 
 #applications-table{
-    width: 100%;
+    width: 98%;
     max-height: 95%;
     border-collapse: collapse;
 }
@@ -73,6 +73,25 @@ tbody tr:nth-child(even) {
   
   td{
     padding-left: 10px;
+  }
+
+  .toolbar{
+    border-right: 1px solid black;
+  }
+
+  .toolbar-btn{
+    width: 100%;
+    padding: 5px;
+    margin: 10px 0 10px 0;
+    text-align: left;
+    background: 0;
+    border: none;
+    
+  }
+
+  .toolbar-btn:hover{
+    color: whitesmoke;
+    background-color: grey;
   }
 
 
