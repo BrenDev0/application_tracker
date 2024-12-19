@@ -1,52 +1,27 @@
-import { Toolbar } from "../../private/js/class/Toolbar.js";
+import { Table } from "../../private/js/class/Table.js";
 import { Element } from "../../private/js/class/Element.js";
 import { Button } from "../../private/js/class/Button.js";
 
-const toolbar = new Toolbar('applications');
+const toolbar = new Table('applications');
 
 const all = new Button('all-btn', () => location.reload(true));
-const sent = new Button('sent-btn', () => filterTable(0));
-const seen = new Button('seen-btn', () => filterTable(1));
-const interviewed = new Button('interviewed-btn', () => filterTable(2));
-const position = new Button('position-btn', () => filterTable(3));
+const sent = new Button('sent-btn', () => toolbar.filterTable(collectionData, 0));
+const seen = new Button('seen-btn', () => toolbar.filterTable(collectionData, 1));
+const interviewed = new Button('interviewed-btn', () => toolbar.filterTable(collectionData, 2));
+const position = new Button('position-btn', () => toolbar.filterTable(collectionData, 3));
+const results = new Element('results');
 
-function filterTable(status){
-    const filtered = collectionData.filter((item)=> item.status === status);
 
-    toolbar.clearChildren();
+const searchBar = document.getElementById('search');
+searchBar.addEventListener('change',(e) => applicationSearch(e.target.value))
 
-    filtered.forEach(element => {
-        let row = document.createElement('tr');
-        for(let key in element){
-            if(key != 'id'){
-               if(key === 'status'){
-                    let data = document.createElement('td');
-                    
-                    switch(element[key]){
-                        case 0:
-                            data.appendChild(document.createTextNode('Sent'));
-                            break;
-                        case 1:
-                            data.appendChild(document.createTextNode('Seen'));
-                            break;
-                        case 2:
-                            data.appendChild(document.createTextNode('Interviewed'));
-                            break;
-                        case 3:
-                            data.appendChild(document.createTextNode('Position'));
-                            break;       
-                        default:
-                            break;
-                    }
-
-                    row.appendChild(data);
-               } else {
-                    let data = document.createElement('td');
-                    data.appendChild(document.createTextNode(element[key]));
-                    row.appendChild(data);
-               }
-            }
-        }
-        toolbar.insert(row);
-    });
+function applicationSearch(needle){
+        results.clearChildren();
+        console.log('cleared')
+        const filteredResults = collectionData.filter((app) => app.position.startsWith(needle))
+        filteredResults.forEach((i) => {
+            let li = document.createElement('li');
+            li.appendChild(document.createTextNode(i.position))
+            results.insert(li)
+        })
 }

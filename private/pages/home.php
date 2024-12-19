@@ -25,7 +25,10 @@ if(isset($_POST['position'], $_POST['company'], $_POST['website'])){
 </head>
 <body>
     <header class="header">
-        <input type="text">
+        <input id="search" type="text">
+        <div class="results-con">
+            <ul id="results"></ul>
+        </div>
 </header>
     <div class="con">
         <section class="toolbar">
