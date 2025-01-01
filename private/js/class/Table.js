@@ -5,8 +5,15 @@ export class Table extends Element{
         super(elementId);
     }
 
-    filterTable(collection, status){
-        const filtered = collection.filter((item)=> item.status === status);
+    filterTable(collection, status=4){
+        let filtered;
+        if(status != 4){
+            filtered = collection.filter((item)=> item.status === status);
+        } else {
+            filtered = collection
+        }
+
+        
     
         this.clearChildren();
     
@@ -44,5 +51,18 @@ export class Table extends Element{
             }
             this.insert(row);
         });
+    }
+
+    organizeTable(collection, columnToOrder){
+        switch(columnToOrder){
+            case "POSITION":
+                const organized = collection.sort((a, b) => a.position.toLowerCase().localeCompare(b.position.toLowerCase()));
+                this.filterTable(organized, 4);
+                return;
+            default:
+                console.log("its not working") 
+                break   
+        }
+        return;
     }
 }
